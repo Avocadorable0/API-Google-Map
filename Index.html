@@ -5,19 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API- Google Map</title>
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript">
-        function inisialiser(){
-            var parametre = {
-                center : new google.maps.LatLng(-18.952569, 47.575925),
-                zoom: 15,
-                mapTypeId: google.maps.MapTypeId.SATELLITE
-            };
-            var carte = new google.maps.Map(document.getElementById("map"),parametre);
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style type="text/css">
+        html{
+            height: 100%;
         }
-    </script>
+        body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #178b86;
+        }
+        #map{
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
     <div id="map"></div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </body>
+    <script type="text/javascript">
+        // Initialisation de la carte et réglage de la vue
+        var map = L.map('map').setView([-18.952564, 47.575915], 20);
+
+        // Ajout d'une couche de tuiles OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Ajout d'un marqueur sur la carte
+        L.marker([]).addTo(map)
+            .bindPopup('Votre emplacement')
+            .openPopup();
+    </script>
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </html>
