@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API- Google Map</title>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        function inisialiser(){
+            var parametre = {
+                center : new google.maps.LatLng(-18.952569, 47.575925),
+                zoom: 15,
+                mapTypeId: google.maps.MapTypeId.SATELLITE
+            };
+            var carte = new google.maps.Map(document.getElementById("map"),parametre);
+        }
+    </script>
 </head>
 <body>
     <div id="map"></div>
